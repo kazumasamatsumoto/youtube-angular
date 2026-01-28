@@ -1,0 +1,28 @@
+<div class="performance-monitor">
+  <h2>🔴 パフォーマンスモニター（OnPushなし）</h2>
+  <div class="warning">
+    ⚠️ このアプリは意図的にOnPushを使っていません！<br>
+    不要な変更検知が大量に発生しています。
+  </div>
+  
+  <div class="stats">
+    <div class="stat-card">
+      <div class="stat-label">総変更検知回数</div>
+      <div class="stat-value">{{ totalDetections() }}</div>
+    </div>
+  </div>
+
+  <div class="component-stats">
+    <h3>コンポーネント別変更検知回数</h3>
+    <div class="stats-list">
+      @for (entry of getCountEntries(); track entry[0]) {
+        <div class="stat-item">
+          <span class="component-name">{{ entry[0] }}</span>
+          <span class="count">{{ entry[1] }}</span>
+        </div>
+      }
+    </div>
+  </div>
+
+  <button (click)="reset()" class="reset-button">リセット</button>
+</div>

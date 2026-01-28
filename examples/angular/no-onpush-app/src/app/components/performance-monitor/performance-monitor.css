@@ -1,0 +1,101 @@
+.performance-monitor {
+  background: #fff3cd;
+  border: 2px solid #ffc107;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+}
+
+.warning {
+  background: #fff;
+  border-left: 4px solid #ff0000;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 4px;
+  font-weight: bold;
+  color: #d32f2f;
+}
+
+.stats {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.stat-card {
+  background: white;
+  padding: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex: 1;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #d32f2f;
+}
+
+.component-stats {
+  margin-top: 1.5rem;
+}
+
+.component-stats h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.125rem;
+}
+
+.stats-list {
+  background: white;
+  border-radius: 6px;
+  padding: 1rem;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.stat-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem;
+  border-bottom: 1px solid #eee;
+}
+
+.stat-item:last-child {
+  border-bottom: none;
+}
+
+.component-name {
+  font-weight: 500;
+  color: #333;
+}
+
+.count {
+  background: #ffebee;
+  color: #d32f2f;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 0.875rem;
+}
+
+.reset-button {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: #d32f2f;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.reset-button:hover {
+  background: #b71c1c;
+}

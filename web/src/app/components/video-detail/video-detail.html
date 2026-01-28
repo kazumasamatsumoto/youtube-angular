@@ -1,0 +1,96 @@
+@if (notFound()) {
+  <div class="not-found">
+    <h1>動画が見つかりません</h1>
+    <p>指定された動画は存在しません。</p>
+    <a routerLink="/videos" class="back-link">動画一覧に戻る</a>
+  </div>
+} @else if (video(); as currentVideo) {
+  <div class="video-detail-container">
+    <div class="breadcrumb">
+      <a routerLink="/">ホーム</a>
+      <span> / </span>
+      <a routerLink="/videos">動画一覧</a>
+      <span> / </span>
+      <span>{{ currentVideo.title }}</span>
+    </div>
+
+    <article class="video-article">
+      <header class="video-header">
+        <div class="video-meta-top">
+          <span class="category-badge">{{ getCategoryLabel(currentVideo.category) }}</span>
+          <span class="date">{{ formatDate(currentVideo.publishedDate) }}</span>
+        </div>
+        <h1>{{ currentVideo.title }}</h1>
+        <p class="video-description">{{ currentVideo.description }}</p>
+        @if (currentVideo.youtubeUrl) {
+          <div class="youtube-link">
+            <a [href]="currentVideo.youtubeUrl" target="_blank" rel="noopener noreferrer" class="youtube-button">
+              📺 YouTubeで見る
+            </a>
+          </div>
+        }
+      </header>
+
+      <section class="video-content">
+        <h2>📝 概要</h2>
+        <div class="overview">
+          <p [innerHTML]="currentVideo.content.overview.replace(/\n/g, '<br>')"></p>
+        </div>
+      </section>
+
+      @if (currentVideo.content.codeSamples.length > 0) {
+        <section class="code-samples">
+          <h2>💻 コードサンプル</h2>
+          @for (sample of currentVideo.content.codeSamples; track sample.title) {
+            <div class="code-sample">
+              <h3>{{ sample.title }}</h3>
+              @if (sample.description) {
+                <p class="code-description">{{ sample.description }}</p>
+              }
+              <div class="code-block">
+                <div class="code-header">
+                  <span class="code-language">{{ sample.language }}</span>
+                  <button 
+                    class="copy-button" 
+                    (click)="copyToClipboard(sample.code)"
+                    title="コードをコピー">
+                    📋 コピー
+                  </button>
+                </div>
+                <pre><code [class]="getCodeSampleLanguageClass(sample.language)">{{ sample.code }}</code></pre>
+              </div>
+            </div>
+          }
+        </section>
+      }
+
+      @if (currentVideo.content.correctUsageLinks.length > 0) {
+        <section class="correct-usage">
+          <h2>✅ 正しい使い方へのリンク</h2>
+          <div class="links-list">
+            @for (link of currentVideo.content.correctUsageLinks; track link.url) {
+              <a [href]="link.url" target="_blank" rel="noopener noreferrer" class="link-card">
+                <div class="link-content">
+                  <h3>{{ link.title }}</h3>
+                  @if (link.description) {
+                    <p>{{ link.description }}</p>
+                  }
+                </div>
+                <span class="link-arrow">→</span>
+              </a>
+            }
+          </div>
+        </section>
+      }
+
+      <section class="video-footer">
+        <div class="tagline">
+          <p><strong>「でも動くんだよね」</strong></p>
+        </div>
+        <div class="navigation-links">
+          <a routerLink="/videos" class="nav-link">← 動画一覧に戻る</a>
+        </div>
+      </section>
+    </article>
+  </div>
+}

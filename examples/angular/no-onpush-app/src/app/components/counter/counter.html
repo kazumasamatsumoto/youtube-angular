@@ -1,0 +1,13 @@
+<div class="counter-component">
+  <h3>カウンターコンポーネント（OnPushなし）</h3>
+  <div class="counter-display">
+    <span class="counter-value">{{ count() }}</span>
+  </div>
+  <div class="counter-actions">
+    <button (click)="decrement()" class="btn btn-decrement">-</button>
+    <button (click)="reset()" class="btn btn-reset">リセット</button>
+    <button (click)="increment()" class="btn btn-increment">+</button>
+  </div>
+  <p class="warning">⚠️ このコンポーネントはOnPushを使っていません！</p>
+  <p class="info">50msごとに自動カウントアップ中（変更検知が大量発生）</p>
+</div>

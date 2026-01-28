@@ -1,0 +1,12 @@
+<div class="parent-component">
+  <h3>親コンポーネント（OnPushなし）</h3>
+  <p>タイマー: {{ timer() }}ms</p>
+  <p class="warning">⚠️ このコンポーネントはOnPushを使っていません！</p>
+  <p class="info">子コンポーネント数: {{ childCount }}個</p>
+  
+  <div class="children-container">
+    @for (index of children; track index) {
+      <app-child [index]="index"></app-child>
+    }
+  </div>
+</div>

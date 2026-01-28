@@ -1,0 +1,43 @@
+<div class="home-container">
+  <section class="hero">
+    <h1 class="hero-title">Angularクソチャンネル 🎬</h1>
+    <p class="hero-subtitle">「でも動くんだよね」を合言葉に</p>
+    <p class="hero-description">
+      Angularの機能を本来の使い方から逸脱した「クソみたいな使い方」で紹介するチャンネルです。<br>
+      原神クソビルドでお馴染みのYoutuber「あろんさん」をイメージとした、<br>
+      楽しみながら学べるエンターテイメント性の高い技術チャンネルです。
+    </p>
+  </section>
+
+  <section class="concept">
+    <h2>📺 チャンネルコンセプト</h2>
+    <div class="concept-card">
+      <p>
+        Angularの機能を意図的に間違った使い方や非推奨な方法で紹介し、<br>
+        視聴者に「こんな使い方もあるのか！」「これは絶対やっちゃダメだな」と<br>
+        楽しみながら学んでもらうことを目指しています。
+      </p>
+      <p class="concept-tagline">
+        <strong>「でも動くんだよね」</strong>
+      </p>
+    </div>
+  </section>
+
+  <section class="categories">
+    <h2>🎯 対象範囲</h2>
+    <div class="category-grid">
+      @for (category of categories; track category.name) {
+        <a [routerLink]="category.path" class="category-card">
+          <div class="category-icon">{{ category.icon }}</div>
+          <h3>{{ category.name }}</h3>
+          <p>{{ category.description }}</p>
+        </a>
+      }
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>🚀 動画を見る</h2>
+    <a routerLink="/videos" class="cta-button">動画一覧を見る</a>
+  </section>
+</div>

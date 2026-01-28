@@ -1,0 +1,48 @@
+.child-component {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 1rem;
+  transition: background-color 0.2s;
+}
+
+.child-component:hover {
+  background: #f5f5f5;
+}
+
+.child-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.child-index {
+  font-weight: bold;
+  color: #2196f3;
+  font-size: 1.125rem;
+}
+
+.render-badge {
+  background: #ffebee;
+  color: #d32f2f;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.child-content {
+  margin: 0.5rem 0;
+  color: #333;
+  font-size: 0.875rem;
+}
+
+.child-footer {
+  font-size: 0.75rem;
+  color: #999;
+  font-style: italic;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #eee;
+}

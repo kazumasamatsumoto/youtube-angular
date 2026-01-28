@@ -1,0 +1,26 @@
+.parent-component {
+  background: #e3f2fd;
+  border: 2px solid #2196f3;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+}
+
+.warning {
+  color: #d32f2f;
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+
+.info {
+  color: #666;
+  font-size: 0.875rem;
+  margin: 0.5rem 0;
+}
+
+.children-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}

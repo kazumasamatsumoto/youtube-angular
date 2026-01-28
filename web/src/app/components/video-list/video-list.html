@@ -1,0 +1,46 @@
+<div class="video-list-container">
+  <div class="header">
+    <h1>動画一覧</h1>
+    <div class="category-filter">
+      <label for="category-select">カテゴリ:</label>
+      <select 
+        id="category-select"
+        [value]="selectedCategory() ?? ''"
+        (change)="onCategoryChange($any($event.target).value || null)">
+        @for (category of categories; track category.value) {
+          <option [value]="category.value ?? ''">{{ category.label }}</option>
+        }
+      </select>
+    </div>
+  </div>
+
+  @if (videos().length === 0) {
+    <div class="empty-state">
+      <p>動画がまだありません。お楽しみに！</p>
+    </div>
+  } @else {
+    <div class="video-grid">
+      @for (video of videos(); track video.id) {
+        <a [routerLink]="['/videos', video.id]" class="video-card">
+          <div class="video-thumbnail">
+            @if (video.thumbnailUrl) {
+              <img [src]="video.thumbnailUrl" [alt]="video.title">
+            } @else {
+              <div class="thumbnail-placeholder">
+                <span class="category-badge">{{ getCategoryLabel(video.category) }}</span>
+              </div>
+            }
+          </div>
+          <div class="video-info">
+            <h3>{{ video.title }}</h3>
+            <p class="video-description">{{ video.description }}</p>
+            <div class="video-meta">
+              <span class="category-tag">{{ getCategoryLabel(video.category) }}</span>
+              <span class="date">{{ formatDate(video.publishedDate) }}</span>
+            </div>
+          </div>
+        </a>
+      }
+    </div>
+  }
+</div>

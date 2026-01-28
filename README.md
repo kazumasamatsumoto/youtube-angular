@@ -21,14 +21,80 @@ Angularの機能を本来の使い方から逸脱した「クソみたいな使�
 angular-chanel/
 ├── 企画案.md              # 詳細な企画案
 ├── README.md              # このファイル
-├── web/                   # Webサイト（今後作成）
+├── web/                   # Webサイト（Angularアプリケーション）
+│   ├── src/
+│   │   └── app/
+│   │       ├── components/    # コンポーネント
+│   │       │   ├── home/      # ホームページ（チャンネル紹介）
+│   │       │   ├── video-list/ # 動画一覧
+│   │       │   ├── video-detail/ # 動画詳細
+│   │       │   └── navigation/  # ナビゲーション
+│   │       ├── services/      # サービス
+│   │       │   └── video.ts   # 動画データ管理
+│   │       └── models/        # データモデル
+│   │           └── video.model.ts
+│   └── package.json
 ├── examples/              # クソ実装のコード例
-│   ├── angular/
-│   ├── test/
-│   ├── microfrontend/
-│   └── nx/
-└── docs/                  # ドキュメント
+│   └── angular/
+│       ├── README.md      # Angularサンプル一覧
+│       └── no-onpush-app/ # OnPushを使わないアプリ（完成）
+│           ├── README.md  # 詳細な説明
+│           └── src/       # ソースコード
+├── test/                  # テスト関連のサンプル（今後作成）
+├── microfrontend/         # マイクロフロントエンドのサンプル（今後作成）
+└── nx/                    # Nx関連のサンプル（今後作成）
 ```
+
+## 🚀 セットアップ
+
+### 必要な環境
+- Node.js (v18以上推奨)
+- npm または yarn
+
+### Webサイトの起動方法
+
+```bash
+# Webサイトディレクトリに移動
+cd web
+
+# 依存関係のインストール（初回のみ）
+npm install
+
+# 開発サーバーの起動
+npm start
+
+# ブラウザで http://localhost:4200 を開く
+```
+
+### ビルド
+
+```bash
+# プロダクションビルド
+npm run build
+
+# ビルド結果は dist/web/ に出力されます
+```
+
+## 🎬 サンプルアプリケーション
+
+### OnPushを使わないアプリ（完成）
+
+企画案の最初の動画用のサンプルアプリが完成しています。
+
+```bash
+# サンプルアプリの起動
+cd examples/angular/no-onpush-app
+npm install
+npm start
+```
+
+詳細は [examples/angular/no-onpush-app/README.md](./examples/angular/no-onpush-app/README.md) を参照してください。
+
+このアプリでは：
+- ChangeDetectionStrategy.OnPushを全く使わない実装
+- パフォーマンスの悪化を実演
+- 変更検知の回数をリアルタイムで表示
+- 「でも動くんだよね」を実証
 
 ## 🚀 今後の予定
 
